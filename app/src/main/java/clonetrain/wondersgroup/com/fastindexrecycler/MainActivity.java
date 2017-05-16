@@ -1,31 +1,41 @@
 package clonetrain.wondersgroup.com.fastindexrecycler;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends Activity {
+    @Bind(R.id.fast_scroller_recycler)
     RecyclerView recyclerView;
+    @Bind(R.id.notify_indexlist)
+    IndexListView indexListView;
+    @Bind(R.id.button_recyclerview_index)
+    Button indexBtn;
+
     List<ContactModel> datas = new ArrayList<>();
     private CharacterParser characterParser;
     private PinyinComparator pinyinComparator;
     RecyclerViewAdapter adapter;
-
-    private IndexListView indexListView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        indexListView = (IndexListView) findViewById(R.id.notify_indexlist);
+        ButterKnife.bind(this);
 
         characterParser = CharacterParser.getInstance();
         pinyinComparator = new PinyinComparator();
@@ -49,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
                 if (position != -1) {
                     recyclerView.scrollToPosition(position);
                 }
+            }
+        });
+
+        indexBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,RecyclerViewIndexActivity.class);
+                startActivity(intent);
             }
         });
     }
