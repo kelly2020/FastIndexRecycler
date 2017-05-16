@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">FastIndexRecycler</string>
+
+
+    <array name="contact">
+        <item>张三</item>
+        <item>李思</item>
+        <item>老师</item>
+        <item>花花</item>
+        <item>曹华</item>
+        <item>薛雪</item>
+        <item>倩倩</item>
+        <item>谦谦</item>
+        <item>爱爱</item>
+        <item>诺诺</item>
+        <item>李磊</item>
+        <item>宝宝</item>
+        <item>飞飞</item>
+        <item>俊凯</item>
+        <item>喔喔</item>
+        <item>坡坡</item>
+        <item>管管</item>
+        <item>小乐</item>
+        <item>花花</item>
+        <item>网络</item>
+    </array>
 </resources>
